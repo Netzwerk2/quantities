@@ -118,7 +118,9 @@ pub mod speed;
 pub mod temperature;
 #[cfg(feature = "volume")]
 pub mod volume;
+#[cfg(feature = "mass_flow_rate")]
 pub mod mass_flow_rate;
+#[cfg(feature = "currency")]
 pub mod currency;
 
 /// The abstract type of units used to define quantities.
