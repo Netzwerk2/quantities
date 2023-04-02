@@ -36,6 +36,7 @@ frequency = ["duration"]
 datavolume = []
 datathroughput = ["datavolume", "duration"]
 temperature = []
+mass_flow_rate = ["mass", "duration"]
 # used for rustdoc only
 doc = ["mass", "length", "duration", "area", "volume", "speed",
     "acceleration", "force", "energy", "power", "frequency", "datavolume",

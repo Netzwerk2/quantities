@@ -19,6 +19,7 @@ use crate::prelude::*;
 #[unit(Minute, "min", 60, "60·s")]
 #[unit(Hour, "h", 3600, "60·min")]
 #[unit(Day, "d", 86400, "24·h")]
+#[unit(Month, "month", 2592000, "30·d")]
 /// Duration: 'what a clock reads'
 ///
 /// Reference unit: Second ('s')
