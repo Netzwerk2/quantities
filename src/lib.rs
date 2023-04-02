@@ -119,6 +119,7 @@ pub mod temperature;
 #[cfg(feature = "volume")]
 pub mod volume;
 pub mod mass_flow_rate;
+pub mod currency;
 
 /// The abstract type of units used to define quantities.
 pub trait Unit:

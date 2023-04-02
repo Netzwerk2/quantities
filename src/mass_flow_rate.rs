@@ -1,5 +1,3 @@
-use qty_macros::quantity;
-
 use crate::duration::Duration;
 use crate::mass::Mass;
 use crate::prelude::*;
