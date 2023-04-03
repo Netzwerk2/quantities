@@ -16,9 +16,9 @@ use crate::{force::Force, length::Length, prelude::*};
 #[unit(Newton_Meter, "Nm", NONE, 1, "N·m")]
 #[unit(Watt_Second, "Ws", NONE, 1, "W·s")]
 #[unit(Watt_Hour, "Wh", NONE, 3.6e3, "W·h")]
-#[unit(Kilowatt_Hour, "kWh", 3.6e6, "kW·h")]
-#[unit(Megawatt_Hour, "MWh", 3.6e9, "MW·h")]
-#[unit(Gigawatt_Hour, "GWh", 3.6e12, "GW·h")]
+#[unit(Kilowatt_Hour, "kWh", KILO, 3.6e6, "kW·h")]
+#[unit(Megawatt_Hour, "MWh", MEGA, 3.6e9, "MW·h")]
+#[unit(Gigawatt_Hour, "GWh", GIGA, 3.6e12, "GW·h")]
 /// Property that must be transferred to an object in order to perform work on
 /// or to heat it.
 ///
