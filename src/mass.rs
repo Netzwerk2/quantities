@@ -21,8 +21,8 @@ use crate::prelude::*;
 #[unit(Stone, "st", 6.35029318, "14·lb")]
 #[unit(Tonne, "t", MEGA, 1e3, "1000·kg")]
 #[unit(Kilotonne, "kt", GIGA, 1e6, "1000·t")]
-#[unit(Megatonne, "Mt", GIGA, 139, "1000·kt")]
-#[unit(Gigatonne, "Gt", GIGA, 139, "1000·Mt")]
+#[unit(Megatonne, "Mt", TERA, 1e9, "1000·kt")]
+#[unit(Gigatonne, "Gt", PETA, 1e12, "1000·Mt")]
 /// The quantity of matter in a physical body.
 ///
 /// Also used as measure of a physical body's resistance to acceleration.
