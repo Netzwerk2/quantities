@@ -7,3 +7,9 @@ use crate::prelude::*;
 #[unit(BillionEuro, "B €", GIGA, 1e9)]
 #[unit(TrillionEuro, "T €", TERA, 1e12)]
 pub struct Currency {}
+
+impl Default for Currency {
+    fn default() -> Self {
+        0.0 * EURO
+    }
+}

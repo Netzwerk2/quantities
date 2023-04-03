@@ -35,6 +35,12 @@ use crate::{force::Force, length::Length, prelude::*};
 /// | kWh    | Kilowatt Hour           | kW·h              | 3600000           |
 pub struct Energy {}
 
+impl Default for Energy {
+    fn default() -> Self {
+        0.0 * WATT_HOUR
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

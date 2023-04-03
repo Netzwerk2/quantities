@@ -42,6 +42,12 @@ use crate::prelude::*;
 /// | t      | Tonne                  | 1000·kg           | 1000               |
 pub struct Mass {}
 
+impl Default for Mass {
+    fn default() -> Self {
+        0.0 * KILOGRAM
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

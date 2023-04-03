@@ -10,3 +10,9 @@ use crate::prelude::*;
 #[unit(Megatonne_per_Month, "Mt/month", TERA, 0.3858024691e3)]
 #[unit(Gigatonne_per_Month, "Gt/month", PETA, 0.3858024691e6)]
 pub struct MassFlowRate {}
+
+impl Default for MassFlowRate {
+    fn default() -> Self {
+        0.0 * KILOGRAM_PER_SECOND
+    }
+}

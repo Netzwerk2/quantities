@@ -36,6 +36,12 @@ use crate::prelude::*;
 /// | d      | Day                   | 24·h              | 86400               |
 pub struct Duration {}
 
+impl Default for Duration {
+    fn default() -> Self {
+        0.0 * SECOND
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -35,6 +35,12 @@ use crate::{duration::Duration, energy::Energy, prelude::*};
 /// | TW     | Terawatt              | 1000000000000·W   | 1000000000000       |
 pub struct Power {}
 
+impl Default for Power {
+    fn default() -> Self {
+        0.0 * WATT
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
