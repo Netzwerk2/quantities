@@ -12,13 +12,10 @@
 use crate::{force::Force, length::Length, prelude::*};
 
 #[quantity(Force * Length)]
-#[ref_unit(Joule, "J", NONE, "Reference unit of quantity `Energy`")]
-#[unit(Newton_Meter, "Nm", NONE, 1, "N·m")]
-#[unit(Watt_Second, "Ws", NONE, 1, "W·s")]
-#[unit(Watt_Hour, "Wh", NONE, 3.6e3, "W·h")]
-#[unit(Kilowatt_Hour, "kWh", KILO, 3.6e6, "kW·h")]
-#[unit(Megawatt_Hour, "MWh", MEGA, 3.6e9, "MW·h")]
-#[unit(Gigawatt_Hour, "GWh", GIGA, 3.6e12, "GW·h")]
+#[ref_unit(Watt_Hour, "Wh", NONE, "Reference unit of quantity `Energy`")]
+#[unit(Kilowatt_Hour, "kWh", KILO, 1e3, "kW·h")]
+#[unit(Megawatt_Hour, "MWh", MEGA, 1e6, "MW·h")]
+#[unit(Gigawatt_Hour, "GWh", GIGA, 1e9, "GW·h")]
 /// Property that must be transferred to an object in order to perform work on
 /// or to heat it.
 ///
