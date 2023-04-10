@@ -66,11 +66,13 @@ use core::{
 };
 
 #[cfg(feature = "fpdec")]
-pub use amnt_dec::{AmountT, Dec, Decimal, AMNT_ONE, AMNT_ZERO};
+pub use amnt_dec::{AMNT_ONE, AMNT_ZERO, AmountT, Dec, Decimal};
+/*
 #[cfg(all(not(feature = "fpdec"), target_pointer_width = "32"))]
-pub use amnt_f32::{AmountT, AMNT_ONE, AMNT_ZERO};
-#[cfg(all(not(feature = "fpdec"), target_pointer_width = "64"))]
-pub use amnt_f64::{AmountT, AMNT_ONE, AMNT_ZERO};
+pub use amnt_f32::{AMNT_ONE, AMNT_ZERO, AmountT};
+ */
+#[cfg(not(feature = "fpdec"))]
+pub use amnt_f64::{AMNT_ONE, AMNT_ZERO, AmountT};
 pub use converter::{ConversionTable, Converter};
 pub use rate::Rate;
 pub use si_prefixes::SIPrefix;
@@ -83,10 +85,12 @@ mod si_prefixes;
 #[cfg(feature = "fpdec")]
 #[doc(hidden)]
 pub mod amnt_dec;
+/*
 #[cfg(all(not(feature = "fpdec"), target_pointer_width = "32"))]
 #[doc(hidden)]
 pub mod amnt_f32;
-#[cfg(all(not(feature = "fpdec"), target_pointer_width = "64"))]
+*/
+#[cfg(not(feature = "fpdec"))]
 #[doc(hidden)]
 pub mod amnt_f64;
 
@@ -125,10 +129,10 @@ pub mod currency;
 
 /// The abstract type of units used to define quantities.
 pub trait Unit:
-    Copy + Eq + PartialEq + Sized + Mul<AmountT> + fmt::Display
+Copy + Eq + PartialEq + Sized + Mul<AmountT> + fmt::Display
 {
     /// Associated type of quantity
-    type QuantityType: Quantity<UnitType = Self>;
+    type QuantityType: Quantity<UnitType=Self>;
 
     /// Returns an iterator over the variants of `Self`.
     fn iter<'a>() -> core::slice::Iter<'a, Self>;
@@ -206,7 +210,7 @@ pub trait LinearScaledUnit: Unit {
 /// The abstract type of quantities.
 pub trait Quantity: Copy + Sized + Mul<AmountT> {
     /// Associated type of unit
-    type UnitType: Unit<QuantityType = Self>;
+    type UnitType: Unit<QuantityType=Self>;
 
     /// Returns an iterator over the variants of `Self::UnitType`.
     fn iter_units<'a>() -> core::slice::Iter<'a, Self::UnitType> {
@@ -313,9 +317,9 @@ pub trait Quantity: Copy + Sized + Mul<AmountT> {
                 let tmp: String;
                 let amnt_non_neg = self.amount() >= AMNT_ZERO;
                 #[cfg(feature = "fpdec")]
-                let abs_amnt = self.amount().abs();
+                    let abs_amnt = self.amount().abs();
                 #[cfg(not(feature = "fpdec"))]
-                let abs_amnt = if amnt_non_neg {
+                    let abs_amnt = if amnt_non_neg {
                     self.amount()
                 } else {
                     -self.amount()
@@ -333,8 +337,8 @@ pub trait Quantity: Copy + Sized + Mul<AmountT> {
 
 /// Trait for quantities having a reference unit
 pub trait HasRefUnit: Quantity + Add<Self> + Sub<Self> + Div<Self>
-where
-    <Self as Quantity>::UnitType: LinearScaledUnit,
+    where
+        <Self as Quantity>::UnitType: LinearScaledUnit,
 {
     /// Unit used as reference for scaling the units of `Self::UnitType`.
     const REF_UNIT: <Self as Quantity>::UnitType;
