@@ -65,13 +65,6 @@ use core::{
     ops::{Add, Div, Mul, Sub},
 };
 
-#[cfg(feature = "fpdec")]
-pub use amnt_dec::{AMNT_ONE, AMNT_ZERO, AmountT, Dec, Decimal};
-/*
-#[cfg(all(not(feature = "fpdec"), target_pointer_width = "32"))]
-pub use amnt_f32::{AMNT_ONE, AMNT_ZERO, AmountT};
- */
-#[cfg(not(feature = "fpdec"))]
 pub use amnt_f64::{AMNT_ONE, AMNT_ZERO, AmountT};
 pub use converter::{ConversionTable, Converter};
 pub use rate::Rate;
@@ -82,15 +75,6 @@ pub mod prelude;
 mod rate;
 mod si_prefixes;
 
-#[cfg(feature = "fpdec")]
-#[doc(hidden)]
-pub mod amnt_dec;
-/*
-#[cfg(all(not(feature = "fpdec"), target_pointer_width = "32"))]
-#[doc(hidden)]
-pub mod amnt_f32;
-*/
-#[cfg(not(feature = "fpdec"))]
 #[doc(hidden)]
 pub mod amnt_f64;
 

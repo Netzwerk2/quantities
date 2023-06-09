@@ -22,5 +22,3 @@ pub use crate::{
     Amnt, AmountT, HasRefUnit, LinearScaledUnit, Quantity, Rate, SIPrefix,
     Unit, ONE,
 };
-#[cfg(feature = "fpdec")]
-pub use crate::{Dec, Decimal};
